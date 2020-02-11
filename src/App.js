@@ -10,6 +10,7 @@ import Tasks from './tasks';
 
 const App = (props) => {
 
+  // Why is this required?
   window.addEventListener('unload', (e) => {
     if(props.tasks.length) localStorage.setItem("123", JSON.stringify(props));
     else if(localStorage.getItem("123"))	localStorage.removeItem("123");
@@ -24,7 +25,7 @@ const App = (props) => {
   }
  }, []);
   
-
+// Should break it down further to smaller components, it's easier to manage that way.
   return (
     <div className="App">
       <div className = "header">
