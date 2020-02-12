@@ -5,7 +5,7 @@ import './App.css';
 import Logo from './todo_icon.png';
 import * as actionTypes from './actions';
 import Tasks from './tasks';
-
+import ManiList from './maniList';
 
 
 const App = (props) => {
@@ -39,30 +39,8 @@ const App = (props) => {
       <div className = "mani">
     	  <h2> Manipulation Tools </h2>
     	
-        <ul className = "mani__list">
-            <li className="mani__item">
-              <label > New Task: </label>
-              <input type="text" name="new_task" className = "input__task" />
-            </li>
-
-            <li className="mani__item">
-              <button type="button" name="new_task" className="task__btn--add" onClick={() => {
-                props.onAddTask(document.querySelector('.input__task').value);
-                document.querySelector('.input__task').value = '';}}>ADD</button>
-            </li>
-
-            <li className="mani__item">
-                <button type="button" name="clear_all_task" className="task__btn--clear" onClick={props.onClearTask}>Clear All</button>
-            </li>
-          
-            <li className="mani__item">
-                <button type="button" name="sort_task_alpha" className="task__btn--alphSort" onClick={props.onAlphaSort}>Sort Aplhbetically</button>
-            </li>
-            
-            <li className="mani__item">
-                <button type="button" name="sort_task_time" className="task__btn--timeSort" onClick={props.onChronoSort}>Chronological Sort</button>
-            </li>
-          </ul>
+        <ManiList addTaskHandler={props.onAddTask} clearTaskHandler={props.onClearTask}
+                  aSortHandler={props.onAlphaSort} cSortHandler={props.onChronoSort}/>
        </div>
     </div>
   );
