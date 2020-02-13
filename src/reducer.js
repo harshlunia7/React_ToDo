@@ -1,6 +1,6 @@
 import * as actionTypes from './actions';
 
-const initialState = {
+export const initialState = {
     tasks: []
 }
 
@@ -43,13 +43,13 @@ const reducer = (state = initialState, action) => {
             };
         
         case actionTypes.TASK_DEL :
-            const id_to_del = parseInt(action.element.target.parentElement.dataset.id);
+            const id_to_del = parseInt(action.element.target.parentElement.dataset.testid);
             return {
                 tasks: state.tasks.filter((ele) => ele.dat !== id_to_del)
             }
     
         case actionTypes.TASK_COMP :
-            const id_to_comp = parseInt(action.element.target.parentElement.dataset.id);
+            const id_to_comp = parseInt(action.element.target.parentElement.dataset.testid);
             return {
                 tasks: state.tasks.map((ele) => {
                     if(ele.dat === id_to_comp) ele.striked = (!ele.striked);
