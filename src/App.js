@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import logo from './logo.svg';
+
 import { connect } from 'react-redux';
 import './App.css';
-import Logo from './todo_icon.png';
 import * as actionTypes from './actions';
-import Tasks from './tasks';
-import ManiList from './maniList';
-
+import Tasks from './components/tasks';
+import ManiList from './components/maniList';
+import Header from './components/header';
 
 const App = (props) => {
 
@@ -27,15 +26,15 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <div className = "header">
-        <img src={Logo} alt = "logo" className = "header__logo"></img>
-        <div className = "app__name">To-Do App</div>
-      </div>
+      
+      <Header />
+      
       <div className = "todo">
         <h1> To-Do List Items </h1>
 
         <Tasks taskList={props.tasks} compHandler={props.onTaskComp} delHandler={props.onTaskDel}/>
       </div>
+      
       <div className = "mani">
     	  <h2> Manipulation Tools </h2>
     	
